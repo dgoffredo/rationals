@@ -1,5 +1,7 @@
 #pragma once
 
+// This file comes with a companion unit test, `rationals_test.C`. Use it!
+
 // What follows are the leading comments from the Boost project's rational.hpp,
 // from which this file is copied and altered.
 // This file is based off of commit 47c1b26964b06a99200769474d58a309267c50f1,
@@ -85,12 +87,17 @@ namespace rationals {
 template <typename IntType>
 IntType
 gcd(IntType a, IntType b) {
+    using std::abs;
+    a = abs(a);
+    b = abs(b);
+
     IntType remainder;
     while (b) {
         remainder = a % b;
         a = b;
         b = remainder;
     }
+
     return a;
 }
 
