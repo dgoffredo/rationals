@@ -3,6 +3,7 @@
 find_sources() {
     find "$1" -type f \( \
         -name "*.h" -o \
+        -name "*.hpp" -o \
         -name "*.C" -o \
         -name "*.cpp" -o \
         -name "*.cxx" \
