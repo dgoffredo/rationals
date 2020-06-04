@@ -41,6 +41,20 @@ assert_equal_impl(
     assert_equal_impl(left, #left, right, #right, __LINE__)
 
 void
+readme_example() {
+    using frac64_t = rationals::rational<std::int64_t>;
+
+    const frac64_t not_pi(22, 7);
+    (void)not_pi;
+
+    assert(not_pi > 3);
+    assert_equal(frac64_t(66, 21), not_pi);
+    assert_equal(-frac64_t(-22, 7), not_pi);
+    assert_equal(7 * not_pi, 22);
+    assert_equal(frac64_t(11, 17) / frac64_t(-1234, 5), -frac64_t(55, 20978));
+}
+
+void
 multiplication() {
     using frac64_t = rationals::rational<std::int64_t>;
 
@@ -92,6 +106,9 @@ run_test(int which) {
         break;
     case 3:
         multiplication();
+        break;
+    case 4:
+        readme_example();
         break;
     default:
         return -1;
